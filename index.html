@@ -1,0 +1,93 @@
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>App Pesquisa Endereço</title>
+        <!-- Bootstrap -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="style.css">
+		<script>
+            // AJAX
+			function getDadosEnderecoPorCep(cep) {
+				
+                // Variável com a url que recebe o parâmetro da função
+				let url = 'https://viacep.com.br/ws/' + cep + '/json/';
+
+                // Cria a instância do XMLHttpRequest
+				let xmlHttp = new XMLHttpRequest();
+                // Faz a requisição do tipo GET na variável url
+				xmlHttp.open('GET', url);
+		
+				xmlHttp.onreadystatechange = () => {
+                    // Se a requisição for feita corretamente executa o bloco de código
+					if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        // atribui a resposta http a variável dadosJsonText
+						let dadosJsonText = xmlHttp.responseText;
+                        // Converte dadosJsonText para um Objeto
+						let dadosJsonObj = JSON.parse(dadosJsonText);
+
+                        // Define o value dos campos 
+						document.querySelector('#endereco').value = dadosJsonObj.logradouro;
+						document.querySelector('#bairro').value = dadosJsonObj.bairro;
+						document.querySelector('#cidade').value = dadosJsonObj.localidade;
+						document.querySelector('#uf').value = dadosJsonObj.uf;
+					}
+				}
+
+				xmlHttp.send();
+			}
+
+		</script>
+	</head>
+	<body>
+		
+        <div class="container">
+
+            <div class="card border border-dark">
+                <div class="card-body">
+                  <h5 class="card-title text-center mt-3 mb-5">App Pesquisa Endereço</h5>
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label class="login-label">
+                                <span>Seu CEP aqui</span>
+                                <input type="text" maxlength="10" class="input" onblur="getDadosEnderecoPorCep(this.value)"/>
+                            </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <label class="login-label">
+                                <input type="text" class="input2" placeholder="Endereço" readonly id="endereco"/>
+                            </label>
+                        </div>
+                    </div>
+    
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="login-label">
+                                <input type="text" class="input2" placeholder="Bairro" readonly id="bairro"/>
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="login-label">
+                                <input type="text" class="input2" placeholder="Cidade" readonly id="cidade"/>
+                            </label>
+                        </div>
+                        <div class="col-sm-2">
+                            <label class="login-label">
+                                <input type="text" class="input2" placeholder="UF" readonly id="uf"/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="card-text mt-4 ml-3"><small class="text-muted">Desenvolvido por Gustavo Ferreira</small></p>
+                        <p class="card-text mt-4 ml-auto mr-3"><small class="text-muted"><button class="refresh" onclick="refresh()">Refresh</button></small></p>
+                    </div>
+                </div>
+            </div>
+
+		</div>
+    
+    <canvas class="background"></canvas>
+    <script src="particles.js-master/src/particles.js"></script>   
+    <script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+
+}
+
+.background {
+    position: absolute;
+      
+    display
+    : block;
+      
+    top
+    : 0;
+      
+    left
+    : 0;
+      
+    z-index
+    : 0;
+    }
+
+/* Chrome e outros */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.login-label {
+    display: block;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+  
+  .input {
+    width: 100%;
+    background-color: #ececec;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    outline: none;
+    font-size: 0.9em;
+    padding: 15px 10px 10px;
+    font-weight: 600;
+    color: #000000;
+  }
+  
+  .input:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .login-label span {
+    position: absolute;
+    font-size: 0.65em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #3e3e3e;
+    margin: 19px;
+    cursor: text;
+    transition: all 200ms ease;
+  }
+  
+  input:focus {
+    background: #f9f9f9;
+    border: 2px solid #343434;
+  }
+  
+  .login-label .span-active {
+    font-size: 0.6em;
+    margin: 3px 11px;
+  }
+
+  /* Input sem efeito */
+  .input2 {
+    width: 100%;
+    background-color: #ececec;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    outline: none;
+    font-size: 0.9em;
+    padding: 15px 10px 10px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+.card {
+  z-index: 1000;
+  opacity: 0.8;
+  margin-top: 17%;
+}
+
+.refresh {
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.refresh:hover {
+  transition: 300ms;
+  background-color: #343434;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+}
